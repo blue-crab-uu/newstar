@@ -31,11 +31,12 @@
 
 
 const axios = require('axios');
+require('dotenv').config();
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions;
-
+  const apiUrl = process.env.GATSBY_API_URL;
   // 1. build 阶段只拉一次
-  const res = await axios.get('http://localhost:3000/currency-list');
+  const res = await axios.get(apiUrl);
   const list = res.data; // <= 你的数组
 
   // 2. 每条记录变成 Gatsby 内部节点
