@@ -1,0 +1,65 @@
+.currency-page {
+  min-height: 100vh;
+  background: #6e5f5f;
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 顶部标题 */
+.currency-header {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+.currency-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2d3748;
+  letter-spacing: 1px;
+}
+.currency-subtitle {
+  font-size: 2rem;
+  color: #8d9095;
+  margin-top: 0.25rem;
+}
+
+/* 卡片网格 */
+.currency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 单张卡片 */
+.currency-card {
+  background: #6e5f5f;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* 文字居中 */
+  text-align: center;
+  /* 垂直居中 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.currency-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* 卡片内部排版 */
+.card-date {
+  font-size: 0.875rem;
+  color: #718096;
+  margin-bottom: 0.5rem;
+}
+.card-rate {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2b6cb0;
+  letter-spacing: 0.5px;
+}

@@ -43,7 +43,7 @@ export default function CurrencyDetail({ data, pageContext }) {
               目标货币: <strong>{selectedIndex === 0 ? '所有' : uniqueTargets[selectedIndex - 1]}</strong>
             </label>
 
-            <div className="range" style={{ width: 300 }}>
+            {/* <div className="range" style={{ width: 300 }}>
               <input
                 className="range-input"
                 type="range"
@@ -55,7 +55,7 @@ export default function CurrencyDetail({ data, pageContext }) {
               <div className="range-hint">
                 {selectedIndex === 0 ? '显示所有目标货币' : `筛选: ${uniqueTargets[selectedIndex - 1]}`}
               </div>
-            </div>
+            </div> */}
 
             <div>
               <input
@@ -83,7 +83,7 @@ export default function CurrencyDetail({ data, pageContext }) {
             </div>
           </div>
         </div>
-        <button className="back-btn" onClick={() => navigate(-1)}>返回列表</button>
+        {/* <button className="back-btn" onClick={() => navigate(-1)}>返回列表</button> */}
       </div>
 
       <div className="table-wrap" style={{ padding: 20 }}>

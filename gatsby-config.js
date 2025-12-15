@@ -9,7 +9,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `全球汇率查询`,
+    title: `全球货币汇率查询器`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
   },
   plugins: [

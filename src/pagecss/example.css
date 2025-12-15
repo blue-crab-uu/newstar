@@ -1,0 +1,142 @@
+body {
+      /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  */
+      background-color: #6e5f5f;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      min-height: 100vh; 
+      }
+.indexcontainer {
+  width: 50%;
+  margin: 0 auto;          /* 整个盒子水平居中 */
+  padding: 0;
+  box-sizing: border-box;
+  background: pink;
+  border-radius: 20px;
+
+  /* 关键：让子元素（按钮）在内部水平+垂直居中 */
+  flex-direction: column;
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center;     /* 垂直居中 */
+  min-height: 120px;       /* 需要高度才能看出垂直居中，可按需改 */
+}
+
+.pagebox {
+  /* 保留你自己的尺寸和圆角 */
+  width: 80%;
+  height: 140px;
+  border-radius: 12px;
+  border: none;
+  color: #fff;
+  background: #5c5151;
+
+  /* 1. 让文字垂直居中 */
+  /* 文字大小 */
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 2. 可点提示 */
+  cursor: pointer;          /* 小手 */
+  transition: background .25s;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}
+
+.pagebox:hover {
+  background: #777;         /* hover 变色 */
+  
+}
+
+.submiltbtn{/* 保留你自己的尺寸和圆角 */
+  width: 40%;
+  height: 100px;
+  border-radius: 12px;
+  border: none;
+  color: #fff;
+  background: #5c5151;
+
+  /* 1. 让文字垂直居中 */
+  /* 文字大小 */
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 2. 可点提示 */
+  cursor: pointer;          /* 小手 */
+  transition: background .25s;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.submiltbtn:hover {
+  background: #777;         /* hover 变色 */
+}
+/* 下拉根节点：相对定位，当菜单参照系 */
+.dropdown {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 下拉菜单：绝对定位，平时藏起来 */
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 80%;
+  margin-top: 0px;          /* 原来是 4px → 改成 0 */
+  margin-left: 10%;        /* 调整位置，按需改 */
+  padding: 0.5rem 0;
+  min-width: 80%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
+  list-style: none;
+  z-index: 200;
+
+  max-height: 300px;   /* 超出 200px 就滚动，按需调 */
+  overflow-y: auto;    /* 垂直滚动条 */
+}
+
+.dropdown-menu li {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0px;
+  margin: 0px;
+  background: hwb(0 100% 0%);
+  border-radius: 15px;
+  
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: .6rem 1.2rem;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 15px;
+}
+.dropdown-menu a:hover {
+  background: #f2f2f2;
+}
+
+.search-row {
+  padding: 0.4rem 0.6rem;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.search-row input {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
