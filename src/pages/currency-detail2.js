@@ -5,7 +5,7 @@ import '../pagecss/exchange2.css';
 import Seo from '../components/Seo';
 
 export default function Currencypage({ data, pageContext }) {
-    const rates = data.allEurHistoricalRate.nodes || [];
+    const rates = data.allAllHistoricalRate.nodes || [];
     const [days, setDays] = useState(7);
     const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -38,7 +38,7 @@ return (
 }
 export const query = graphql`
   query($fromCurrency: String!, $toCurrency: String!) {
-    allEurHistoricalRate(
+    allAllHistoricalRate (
       filter: {
         base_currency: { eq: $fromCurrency }
         target_currency: { eq: $toCurrency }

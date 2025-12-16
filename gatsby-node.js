@@ -33,6 +33,7 @@
 exports.sourceNodes = async (...args) => {
   await require('./gatsby/sourceCurrency.js').sourceNodes(...args);
   await require('./gatsby/sourceRates.js').sourceNodes(...args);
+  await require('./gatsby/sourceRates2.js').sourceNodes(...args);
 };
 
 exports.createPages = async (...args) => {
