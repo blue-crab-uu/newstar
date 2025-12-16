@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { graphql, navigate } from 'gatsby';
 import Layout from '../components/layout';
 import '../pagecss/exchange2.css';
+import Seo from '../components/Seo';
 
 export default function Currencypage({ data, pageContext }) {
     const rates = data.allEurHistoricalRate.nodes || [];
@@ -11,13 +12,15 @@ export default function Currencypage({ data, pageContext }) {
 
 
 return (
+    <>
+    <Seo title={`${pageContext.fromCurrency} to ${pageContext.toCurrency}`} description="Real-time and historical foreign exchange rates at a glance. Convert any currency pair with up-to-date data and intuitive charts." />
   <Layout pageTitle={`${pageContext.fromCurrency} to ${pageContext.toCurrency}`}>
     <div className="currency-page">
       <div className="currency-header">
         <h1 className="currency-title">
           {pageContext.fromCurrency} → {pageContext.toCurrency}
         </h1>
-        <p className="currency-subtitle">最近历史汇率</p>
+        <p className="currency-subtitle">Recent exchange rate history</p>
       </div>
 
       <div className="currency-grid">
@@ -30,6 +33,7 @@ return (
       </div>
     </div>
   </Layout>
+  </>
 );
 }
 export const query = graphql`

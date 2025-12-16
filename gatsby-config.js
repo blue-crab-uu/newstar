@@ -9,9 +9,9 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `全球货币汇率查询器`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-  },
+  title: `Global Currency Exchange Rate Query Tool`,
+  description: `Real-time and historical foreign exchange rates at a glance. Convert any currency pair with up-to-date data and intuitive charts.`
+},
   plugins: [
     // {
     //   resolve: `gatsby-source-filesystem`,
@@ -28,6 +28,7 @@ module.exports = {
     //     path: `${__dirname}/src/json`,
     //   }
     // },
-    // "gatsby-plugin-json",
+    // "gatsby-plugin-json", 
+    "gatsby-plugin-react-helmet",
   ],
 }

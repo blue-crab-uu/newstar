@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import Dropdown from '../components/dropdown';   // ① 引入
 import { graphql,navigate } from 'gatsby';
 import '../pagecss/example.css';
+import Seo from '../components/Seo';
 
 export default function Newpage({ data }) {
   const currencies = data.allCurrency.nodes;
@@ -12,7 +13,9 @@ export default function Newpage({ data }) {
   const [quote, setQuote] = useState('quote currency');
 
   return (
-    <Layout pageTitle="Example Page">
+    <>
+    <Seo title="Exchange rate inquiry" description="Real-time and historical foreign exchange rates at a glance. Convert any currency pair with up-to-date data and intuitive charts." />
+    <Layout pageTitle="Currency Exchange Rate Comparison Tool">
       <div className="indexcontainer">
         <Dropdown
           label={base}
@@ -32,10 +35,11 @@ export default function Newpage({ data }) {
             navigate(`/${baseCode}/${quoteCode}`);
           }}
         >
-          查看比较
+          Submit
         </button>
       </div>
     </Layout>
+    </>
   );
 }
 

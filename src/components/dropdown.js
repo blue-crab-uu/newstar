@@ -41,7 +41,7 @@ export default function Dropdown({ label: outerLabel, items, onSelect }) {
           <li className="search-row">
             <input
              type="text"
-             placeholder="搜索币种..."   // ✅ 双引号闭合
+             placeholder="Search currency..."   // ✅ 双引号闭合
              value={keyword}
              onChange={e => setKeyword(e.target.value)}
             />
