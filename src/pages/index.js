@@ -1,31 +1,63 @@
-import React from 'react';
-import { graphql,navigate } from 'gatsby';
-import Layout from '../components/layout'
-import '../pagecss/index.css'
+import React, { useState } from 'react';
+import Layout from '../components/layout';
+import Dropdown from '../components/dropdown';
+import { graphql, navigate } from 'gatsby';
+import '../pagecss/example.css';
 import Seo from '../components/Seo';
 
-
-export default function CurrencyApiPage({ data }) {
-
+export default function Newpage({ data }) {
   const currencies = data.allCurrency.nodes;
-  const handleClick = code => {
-    navigate(`/${code}`);   // 跳转到 /AUD、/CNY ...
+  const baseItems = currencies.map(c => `${c.currency_code}    ${c.currency_name}`);
+
+  const [base, setBase] = useState('base currency');
+  const [quote, setQuote] = useState('quote currency');
+
+  /* ---------- 合法性检查 ---------- */
+  const baseCode = base.split(' ')[0];
+  const quoteCode = quote.split(' ')[0];
+  const isReady =
+    base !== 'base currency' &&
+    quote !== 'quote currency' &&
+    baseCode !== quoteCode;
+
+  /* ---------- 提示文字 ---------- */
+  const tip = !isReady
+    ? baseCode === quoteCode
+      ? 'Base 与 Quote 不能相同'
+      : '请先选择两种货币'
+    : '';
+
+  /* ---------- 提交函数 ---------- */
+  const handleSubmit = () => {
+    if (!isReady) return;
+    navigate(`/${baseCode}/${quoteCode}`);
   };
+
   return (
     <>
-    <Seo title="Exchange rate inquiry" description="Real-time and historical foreign exchange rates at a glance. Convert any currency pair with up-to-date data and intuitive charts." />
-    <Layout pageTitle="请点击您要查询的货币代码">
-    <body>
-    <div className="grid-wrapper">
-  {currencies.map(item => (
-    <button key={item.id} className="currency-card" onClick={() => handleClick(item.currency_code)}>
-      <h1 className="currency-code">{item.currency_code}</h1>
-      <p className="currency-name">{item.currency_name}</p>
-    </button>
-  ))}
-</div>
-    </body>
-    </Layout>
+      <Seo
+        title="Exchange rate inquiry"
+        description="Real-time and historical foreign exchange rates at a glance. Convert any currency pair with up-to-date data and intuitive charts."
+      />
+      <Layout pageTitle="Currency Exchange Rate Comparison Tool">
+        <div className="indexcontainer">
+          <Dropdown label={base} items={baseItems} onSelect={setBase} />
+          <Dropdown label={quote} items={baseItems} onSelect={setQuote} />
+
+          {/* 按钮 + 提示 */}
+          <button
+            className="submiltbtn"
+            onClick={handleSubmit}
+            disabled={!isReady}
+            title={tip}
+          >
+            Submit
+          </button>
+
+          {/* 红色文字提示 */}
+          <p className="tip-text">{tip}</p>
+        </div>
+      </Layout>
     </>
   );
 }
