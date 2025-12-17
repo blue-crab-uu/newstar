@@ -21,7 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
       createPage({
         path: `/${fromNode.currency_code}/${toNode.currency_code}`, // URL = /USD/CNY
-        component: require.resolve('../src/pages/currency-detail2.js'),
+        component: require.resolve('../src/templates/currency-detail2.js'),
         context: {
           fromCurrency: fromNode.currency_code,
           toCurrency: toNode.currency_code,
