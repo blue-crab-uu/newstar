@@ -1,66 +1,220 @@
+/* 货币详情页面样式 */
 .currency-page {
   min-height: 100vh;
-  background: #b1a9a9;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 2rem 1rem;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-/* 顶部标题 */
+/* 顶部标题区域 */
 .currency-header {
-  max-width: 800px;
-  margin: 0 auto 2rem;
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
   text-align: center;
-}
-.currency-title {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #2d3748;
-  letter-spacing: 1px;
-}
-.currency-subtitle {
-  font-size: 2rem;
-  color: #202836;
-  margin-top: 0.25rem;
+  padding: 0 1rem;
 }
 
-/* 卡片网格 */
+.currency-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.currency-subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 0;
+  font-weight: 500;
+}
+
+/* 卡片网格布局 */
 .currency-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.75rem;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* 单张卡片 */
+/* 单张卡片样式 */
 .currency-card {
-  background: #f1eded;
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  /* 文字居中 */
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
   text-align: center;
-  /* 垂直居中 */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
 }
+
+/* 卡片悬停效果 */
 .currency-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  background: #b8b2b2;
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-color: #6b46c1;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+}
+
+/* 卡片装饰效果 */
+.currency-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6b46c1 0%, #805ad5 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.currency-card:hover::before {
+  transform: scaleX(1);
 }
 
 /* 卡片内部排版 */
 .card-date {
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   color: #718096;
-  margin-bottom: 0.5rem;
-}
-.card-rate {
-  font-size: 2rem;
-  font-weight: 600;
-  color: #2b6cb0;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
+.card-rate {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #6b46c1;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.currency-card:hover .card-rate {
+  color: #553c9a;
+}
+
+/* 无数据状态 */
+.no-data {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.no-data p {
+  font-size: 1.25rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .currency-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .currency-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .currency-page {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .currency-header {
+    margin-bottom: 2rem;
+  }
+  
+  .currency-title {
+    font-size: 2rem;
+  }
+  
+  .currency-subtitle {
+    font-size: 1.125rem;
+  }
+  
+  .currency-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+    padding: 0 0.75rem;
+  }
+  
+  .currency-card {
+    padding: 1.5rem;
+  }
+  
+  .card-rate {
+    font-size: 2rem;
+  }
+  
+  .card-date {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .currency-title {
+    font-size: 1.75rem;
+  }
+  
+  .currency-subtitle {
+    font-size: 1rem;
+  }
+  
+  .currency-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .currency-card {
+    padding: 1.25rem;
+  }
+  
+  .card-rate {
+    font-size: 1.75rem;
+  }
+}
+
+/* 加载动画（可选） */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.currency-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* 为不同卡片添加交错动画延迟 */
+.currency-card:nth-child(1) { animation-delay: 0.1s; }
+.currency-card:nth-child(2) { animation-delay: 0.2s; }
+.currency-card:nth-child(3) { animation-delay: 0.3s; }
+.currency-card:nth-child(4) { animation-delay: 0.4s; }
+.currency-card:nth-child(5) { animation-delay: 0.5s; }
+.currency-card:nth-child(6) { animation-delay: 0.6s; }
+.currency-card:nth-child(7) { animation-delay: 0.7s; }
+.currency-card:nth-child(8) { animation-delay: 0.8s; }

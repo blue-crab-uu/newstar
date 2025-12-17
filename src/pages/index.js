@@ -46,10 +46,11 @@ export default function Newpage({ data }) {
 
           {/* 按钮 + 提示 */}
           <button
-            className="submiltbtn"
+            className="submitBtn"
             onClick={handleSubmit}
             disabled={!isReady}
             title={tip}
+            aria-label="Submit currency selection"
           >
             Submit
           </button>

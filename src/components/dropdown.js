@@ -40,17 +40,24 @@ export default function Dropdown({ label: outerLabel, items, onSelect }) {
           {/* 搜索框 */}
           <li className="search-row">
             <input
-             type="text"
-             placeholder="Search currency..."   // ✅ 双引号闭合
-             value={keyword}
-             onChange={e => setKeyword(e.target.value)}
+              type="text"
+              placeholder="Search currency..."   // ✅ 双引号闭合
+              value={keyword}
+              onChange={e => setKeyword(e.target.value)}
             />
           </li>
 
           {/* 过滤后的列表 */}
           {filteredItems.map((it, idx) => (
-            <li key={idx} onClick={() => handleSelect(it)}>
-              <a href="#" onClick={e => e.preventDefault()}>{it}</a>
+            <li key={idx} className="dropdown-item">
+              <button
+                type="button"
+                onClick={() => handleSelect(it)}
+                className="dropdown-item-button"
+                aria-label={`Select ${it}`}
+              >
+                {it}
+              </button>
             </li>
           ))}
         </ul>
