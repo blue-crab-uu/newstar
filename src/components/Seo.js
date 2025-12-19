@@ -3,13 +3,14 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 
-export default function Seo({ title, description, lang  , meta }) {
+export default function Seo({ title, description, lang, meta }) {
     const { site } = useStaticQuery(graphql`
         query {
             site {
                 siteMetadata {
                     title
                     description
+                    keywords
                 }
             }
         }
@@ -30,8 +31,12 @@ export default function Seo({ title, description, lang  , meta }) {
                     {
                         name: `description`,
                         content: metaDescription,
+                    },
+                    {
+                        name: `keywords`,
+                        content: site.siteMetadata.keywords,
                     }
-                    
+
                 ].concat(meta)}
             />
         </div>
