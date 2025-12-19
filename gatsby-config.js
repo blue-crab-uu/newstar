@@ -9,10 +9,21 @@
  */
 module.exports = {
   siteMetadata: {
-  title: `Global Currency Exchange Rate Query Tool`,
-  description: `Real-time and historical foreign exchange rates at a glance. Convert any currency pair with up-to-date data and intuitive charts.`
-},
+    title: `Global Currency Exchange Rate Query Tool`,
+    description: `Real-time and historical foreign exchange rates at a glance. Convert any currency pair with up-to-date data and intuitive charts.`
+  },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ["G-YC1WNDZ70E"],
+        pluginConfig: {
+          head: true,          // 把脚本插到 <head>
+          respectDNT: true,    // 可选：尊重 Do-Not-Track
+        },
+      },
+    },
+
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
