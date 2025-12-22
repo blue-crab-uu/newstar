@@ -33,11 +33,16 @@ export default function Newpage({ data }) {
     navigate(`/${baseCode}/${quoteCode}`);
   };
 
+
+
   return (
     <>
       <Seo
         title="Exchange rate inquiry"
         description="Real-time and historical foreign exchange rates at a glance. Convert any currency pair with up-to-date data and intuitive charts."
+        image="/og/home-1200x630.png"
+        pathname="/"
+        keywords="exchange rate, historical exchange rate, currency conversion, currency exchange rate comparison tool, currency exchange rate query tool"
       />
       <Layout pageTitle="Currency Exchange Rate Comparison Tool">
         <div className="indexcontainer">

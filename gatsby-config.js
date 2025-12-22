@@ -11,7 +11,7 @@ module.exports = {
   siteMetadata: {
     title: `Global Currency Exchange Rate Query Tool`,
     description: `Real-time and historical foreign exchange rates at a glance. Convert any currency pair with up-to-date data and intuitive charts.`,
-    keywords: `USD, EUR, 汇率, 历史汇率, 货币转换`
+    keywords: `USD, EUR, exchange rate, historical exchange rate, currency conversion`
   },
   plugins: [
     {
